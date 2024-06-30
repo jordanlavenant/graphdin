@@ -1,5 +1,6 @@
 import dns from 'dns'
 
+import path from "path"
 import type { UserConfig } from 'vite'
 import { defineConfig } from 'vite'
 
@@ -11,6 +12,11 @@ dns.setDefaultResultOrder('verbatim')
 
 const viteConfig: UserConfig = {
   plugins: [redwood()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
 }
 
 export default defineConfig(viteConfig)
