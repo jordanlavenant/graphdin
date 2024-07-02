@@ -10,6 +10,7 @@ import {
   NumberField,
   Submit,
 } from '@redwoodjs/forms'
+import { useState } from 'react'
 
 type FormEntity = NonNullable<EditEntityById['entity']>
 
@@ -21,13 +22,18 @@ interface EntityFormProps {
 }
 
 const EntityForm = (props: EntityFormProps) => {
+
+  const [formKey, setFormKey] = useState(0)
+
   const onSubmit = (data: FormEntity) => {
     props.onSave(data, props?.entity?.id)
+    setFormKey(prevKey => prevKey + 1)
+
   }
 
   return (
     <div className="rw-form-wrapper">
-      <Form<FormEntity> onSubmit={onSubmit} error={props.error}>
+      <Form<FormEntity> key={formKey} onSubmit={onSubmit} error={props.error}>
         <FormError
           error={props.error}
           wrapperClassName="rw-form-error-wrapper"

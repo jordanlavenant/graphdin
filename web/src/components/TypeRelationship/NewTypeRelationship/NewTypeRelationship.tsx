@@ -8,6 +8,8 @@ import { navigate, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import type { TypedDocumentNode } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
+import { GraphRedrawContext } from '@/context/GraphRedrawContext'
+import { useContext } from 'react'
 
 import TypeRelationshipForm from 'src/components/TypeRelationship/TypeRelationshipForm'
 
@@ -25,12 +27,13 @@ const CREATE_TYPE_RELATIONSHIP_MUTATION: TypedDocumentNode<
 `
 
 const NewTypeRelationship = () => {
+  const { setRedraw } = useContext(GraphRedrawContext)
+
   const [createTypeRelationship, { loading, error }] = useMutation(
     CREATE_TYPE_RELATIONSHIP_MUTATION,
     {
       onCompleted: () => {
         toast.success('TypeRelationship created')
-        navigate(routes.typeRelationships())
       },
       onError: (error) => {
         toast.error(error.message)
@@ -40,6 +43,7 @@ const NewTypeRelationship = () => {
 
   const onSave = (input: CreateTypeRelationshipInput) => {
     createTypeRelationship({ variables: { input } })
+    setRedraw(true)
   }
 
   return (

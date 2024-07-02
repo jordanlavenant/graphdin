@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.0",
+    "@radix-ui/react-dialog": "^1.1.1",
+    "@radix-ui/react-popover": "^1.1.1",
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@react-sigma/core": "^4.0.2",
@@ -20,6 +22,7 @@
     "@redwoodjs/web": "7.7.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "cmdk": "^1.0.0",
     "graphology": "^0.25.4",
     "graphology-types": "^0.24.7",
     "humanize-string": "2.1.0",

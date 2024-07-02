@@ -8,6 +8,8 @@ import { navigate, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import type { TypedDocumentNode } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
+import { GraphRedrawContext } from '@/context/GraphRedrawContext'
+import { useContext } from 'react'
 
 import RelationshipForm from 'src/components/Relationship/RelationshipForm'
 
@@ -23,12 +25,13 @@ const CREATE_RELATIONSHIP_MUTATION: TypedDocumentNode<
 `
 
 const NewRelationship = () => {
+  const { setRedraw } = useContext(GraphRedrawContext)
+
   const [createRelationship, { loading, error }] = useMutation(
     CREATE_RELATIONSHIP_MUTATION,
     {
       onCompleted: () => {
         toast.success('Relationship created')
-        navigate(routes.relationships())
       },
       onError: (error) => {
         toast.error(error.message)
@@ -38,6 +41,7 @@ const NewRelationship = () => {
 
   const onSave = (input: CreateRelationshipInput) => {
     createRelationship({ variables: { input } })
+    setRedraw(true)
   }
 
   return (
