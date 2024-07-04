@@ -20,6 +20,7 @@ export const QUERY: TypedDocumentNode<
     typeRelationships {
       id
       label
+      color
     }
   }
 `

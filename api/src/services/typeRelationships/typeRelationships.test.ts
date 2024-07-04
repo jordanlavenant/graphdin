@@ -40,10 +40,11 @@ describe('typeRelationships', () => {
 
   scenario('creates a typeRelationship', async () => {
     const result = await createTypeRelationship({
-      input: { label: 'String' },
+      input: { label: 'String3597326', color: 'String4194324' },
     })
 
-    expect(result.label).toEqual('String')
+    expect(result.label).toEqual('String3597326')
+    expect(result.color).toEqual('String4194324')
   })
 
   scenario('updates a typeRelationship', async (scenario: StandardScenario) => {
@@ -52,10 +53,10 @@ describe('typeRelationships', () => {
     })) as TypeRelationship
     const result = await updateTypeRelationship({
       id: original.id,
-      input: { label: 'String2' },
+      input: { label: 'String46943782' },
     })
 
-    expect(result.label).toEqual('String2')
+    expect(result.label).toEqual('String46943782')
   })
 
   scenario('deletes a typeRelationship', async (scenario: StandardScenario) => {

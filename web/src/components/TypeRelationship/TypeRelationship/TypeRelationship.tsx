@@ -66,6 +66,10 @@ const TypeRelationship = ({ typeRelationship }: Props) => {
               <th>Label</th>
               <td>{typeRelationship.label}</td>
             </tr>
+            <tr>
+              <th>Color</th>
+              <td>{typeRelationship.color}</td>
+            </tr>
           </tbody>
         </table>
       </div>

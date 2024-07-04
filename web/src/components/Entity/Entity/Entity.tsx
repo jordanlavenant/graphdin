@@ -9,7 +9,7 @@ import { useMutation } from '@redwoodjs/web'
 import type { TypedDocumentNode } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
-import { timeTag } from 'src/lib/formatters'
+import { checkboxInputTag, timeTag } from 'src/lib/formatters'
 
 const DELETE_ENTITY_MUTATION: TypedDocumentNode<
   DeleteEntityMutation,
@@ -66,8 +66,8 @@ const Entity = ({ entity }: Props) => {
               <td>{entity.lastName}</td>
             </tr>
             <tr>
-              <th>Age</th>
-              <td>{entity.age}</td>
+              <th>Visible</th>
+              <td>{checkboxInputTag(entity.visible)}</td>
             </tr>
             <tr>
               <th>Created at</th>

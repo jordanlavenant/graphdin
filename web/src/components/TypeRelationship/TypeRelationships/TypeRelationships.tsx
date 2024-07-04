@@ -58,6 +58,7 @@ const TypeRelationshipsList = ({
           <tr>
             <th>Id</th>
             <th>Label</th>
+            <th>Color</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -66,6 +67,7 @@ const TypeRelationshipsList = ({
             <tr key={typeRelationship.id}>
               <td>{truncate(typeRelationship.id)}</td>
               <td>{truncate(typeRelationship.label)}</td>
+              <td>{truncate(typeRelationship.color)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link

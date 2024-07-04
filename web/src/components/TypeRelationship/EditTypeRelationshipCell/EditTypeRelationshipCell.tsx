@@ -20,6 +20,7 @@ export const QUERY: TypedDocumentNode<EditTypeRelationshipById> = gql`
     typeRelationship: typeRelationship(id: $id) {
       id
       label
+      color
     }
   }
 `
@@ -35,6 +36,7 @@ const UPDATE_TYPE_RELATIONSHIP_MUTATION: TypedDocumentNode<
     updateTypeRelationship(id: $id, input: $input) {
       id
       label
+      color
     }
   }
 `

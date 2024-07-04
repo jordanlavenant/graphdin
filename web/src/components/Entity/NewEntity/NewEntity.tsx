@@ -4,11 +4,10 @@ import type {
   CreateEntityMutationVariables,
 } from 'types/graphql'
 
+import { navigate, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import type { TypedDocumentNode } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
-import { GraphRedrawContext } from '@/context/GraphRedrawContext'
-import { useContext } from 'react'
 
 import EntityForm from 'src/components/Entity/EntityForm'
 
@@ -24,9 +23,6 @@ const CREATE_ENTITY_MUTATION: TypedDocumentNode<
 `
 
 const NewEntity = () => {
-
-  const { setRedraw } = useContext(GraphRedrawContext)
-
   const [createEntity, { loading, error }] = useMutation(
     CREATE_ENTITY_MUTATION,
     {
@@ -41,7 +37,6 @@ const NewEntity = () => {
 
   const onSave = (input: CreateEntityInput) => {
     createEntity({ variables: { input } })
-    setRedraw(true)
   }
 
   return (

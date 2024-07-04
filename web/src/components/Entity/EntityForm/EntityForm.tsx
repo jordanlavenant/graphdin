@@ -7,10 +7,9 @@ import {
   FieldError,
   Label,
   TextField,
-  NumberField,
+  CheckboxField,
   Submit,
 } from '@redwoodjs/forms'
-import { useState } from 'react'
 
 type FormEntity = NonNullable<EditEntityById['entity']>
 
@@ -22,18 +21,13 @@ interface EntityFormProps {
 }
 
 const EntityForm = (props: EntityFormProps) => {
-
-  const [formKey, setFormKey] = useState(0)
-
   const onSubmit = (data: FormEntity) => {
     props.onSave(data, props?.entity?.id)
-    setFormKey(prevKey => prevKey + 1)
-
   }
 
   return (
     <div className="rw-form-wrapper">
-      <Form<FormEntity> key={formKey} onSubmit={onSubmit} error={props.error}>
+      <Form<FormEntity> onSubmit={onSubmit} error={props.error}>
         <FormError
           error={props.error}
           wrapperClassName="rw-form-error-wrapper"
@@ -78,21 +72,21 @@ const EntityForm = (props: EntityFormProps) => {
         <FieldError name="lastName" className="rw-field-error" />
 
         <Label
-          name="age"
+          name="visible"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Age
+          Visible
         </Label>
 
-        <NumberField
-          name="age"
-          defaultValue={props.entity?.age}
+        <CheckboxField
+          name="visible"
+          defaultChecked={props.entity ? props.entity.visible : true}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
         />
 
-        <FieldError name="age" className="rw-field-error" />
+        <FieldError name="visible" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">

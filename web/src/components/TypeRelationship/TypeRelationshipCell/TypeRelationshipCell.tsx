@@ -19,6 +19,7 @@ export const QUERY: TypedDocumentNode<
     typeRelationship: typeRelationship(id: $id) {
       id
       label
+      color
     }
   }
 `

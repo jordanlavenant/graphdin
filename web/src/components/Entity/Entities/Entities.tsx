@@ -10,7 +10,7 @@ import type { TypedDocumentNode } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import { QUERY } from 'src/components/Entity/EntitiesCell'
-import { timeTag, truncate } from 'src/lib/formatters'
+import { checkboxInputTag, timeTag, truncate } from 'src/lib/formatters'
 
 const DELETE_ENTITY_MUTATION: TypedDocumentNode<
   DeleteEntityMutation,
@@ -52,7 +52,7 @@ const EntitiesList = ({ entities }: FindEntities) => {
             <th>Id</th>
             <th>First name</th>
             <th>Last name</th>
-            <th>Age</th>
+            <th>Visible</th>
             <th>Created at</th>
             <th>Updated at</th>
             <th>&nbsp;</th>
@@ -64,7 +64,7 @@ const EntitiesList = ({ entities }: FindEntities) => {
               <td>{truncate(entity.id)}</td>
               <td>{truncate(entity.firstName)}</td>
               <td>{truncate(entity.lastName)}</td>
-              <td>{truncate(entity.age)}</td>
+              <td>{checkboxInputTag(entity.visible)}</td>
               <td>{timeTag(entity.createdAt)}</td>
               <td>{timeTag(entity.updatedAt)}</td>
               <td>

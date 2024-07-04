@@ -33,13 +33,13 @@ describe('entities', () => {
       input: {
         firstName: 'String',
         lastName: 'String',
-        updatedAt: '2024-06-30T21:21:22.926Z',
+        updatedAt: '2024-07-02T17:11:49.447Z',
       },
     })
 
     expect(result.firstName).toEqual('String')
     expect(result.lastName).toEqual('String')
-    expect(result.updatedAt).toEqual(new Date('2024-06-30T21:21:22.926Z'))
+    expect(result.updatedAt).toEqual(new Date('2024-07-02T17:11:49.447Z'))
   })
 
   scenario('updates a entity', async (scenario: StandardScenario) => {

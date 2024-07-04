@@ -3,7 +3,7 @@ export const schema = gql`
     id: Int!
     firstName: String!
     lastName: String!
-    age: Int
+    visible: Boolean!
     createdAt: DateTime!
     updatedAt: DateTime!
     RelationshipsAsOne: [Relationship]!
@@ -18,13 +18,13 @@ export const schema = gql`
   input CreateEntityInput {
     firstName: String!
     lastName: String!
-    age: Int
+    visible: Boolean!
   }
 
   input UpdateEntityInput {
     firstName: String
     lastName: String
-    age: Int
+    visible: Boolean
   }
 
   type Mutation {

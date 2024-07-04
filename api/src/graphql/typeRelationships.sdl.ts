@@ -2,6 +2,7 @@ export const schema = gql`
   type TypeRelationship {
     id: Int!
     label: String!
+    color: String!
     Relationship: [Relationship]!
   }
 
@@ -12,10 +13,12 @@ export const schema = gql`
 
   input CreateTypeRelationshipInput {
     label: String!
+    color: String!
   }
 
   input UpdateTypeRelationshipInput {
     label: String
+    color: String
   }
 
   type Mutation {

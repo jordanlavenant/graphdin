@@ -7,14 +7,14 @@ export const standard = defineScenario<Prisma.EntityCreateArgs>({
       data: {
         firstName: 'String',
         lastName: 'String',
-        updatedAt: '2024-06-30T21:21:22.963Z',
+        updatedAt: '2024-07-02T17:11:49.478Z',
       },
     },
     two: {
       data: {
         firstName: 'String',
         lastName: 'String',
-        updatedAt: '2024-06-30T21:21:22.963Z',
+        updatedAt: '2024-07-02T17:11:49.479Z',
       },
     },
   },

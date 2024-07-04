@@ -21,7 +21,7 @@ model Entity {
   id                 Int            @id @default(autoincrement())
   firstName          String
   lastName           String
-  age                Int?
+  visible            Boolean        @default(true)
   createdAt          DateTime       @default(now())
   updatedAt          DateTime       @updatedAt
   RelationshipsAsOne Relationship[] @relation("EntityOne")
@@ -30,15 +30,16 @@ model Entity {
 
 model TypeRelationship {
   id           Int            @id @default(autoincrement())
-  label        String
+  label        String         @unique
+  color        String         @unique
   Relationship Relationship[]
 }
 
 model Relationship {
   id                 Int              @id @default(autoincrement())
-  typeRelationship   TypeRelationship @relation(fields: [typeRelationshipId], references: [id])
-  entityOne          Entity           @relation("EntityOne", fields: [entityOneId], references: [id])
-  entityTwo          Entity           @relation("EntityTwo", fields: [entityTwoId], references: [id])
+  typeRelationship   TypeRelationship @relation(fields: [typeRelationshipId], references: [id], onDelete: SetDefault)
+  entityOne          Entity           @relation("EntityOne", fields: [entityOneId], references: [id], onDelete: Cascade)
+  entityTwo          Entity           @relation("EntityTwo", fields: [entityTwoId], references: [id], onDelete: Cascade)
   entityOneId        Int
   entityTwoId        Int
   typeRelationshipId Int

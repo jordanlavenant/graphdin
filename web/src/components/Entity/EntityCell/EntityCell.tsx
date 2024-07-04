@@ -17,7 +17,7 @@ export const QUERY: TypedDocumentNode<
       id
       firstName
       lastName
-      age
+      visible
       createdAt
       updatedAt
     }

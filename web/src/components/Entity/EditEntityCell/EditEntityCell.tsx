@@ -21,7 +21,7 @@ export const QUERY: TypedDocumentNode<EditEntityById> = gql`
       id
       firstName
       lastName
-      age
+      visible
       createdAt
       updatedAt
     }
@@ -37,7 +37,7 @@ const UPDATE_ENTITY_MUTATION: TypedDocumentNode<
       id
       firstName
       lastName
-      age
+      visible
       createdAt
       updatedAt
     }

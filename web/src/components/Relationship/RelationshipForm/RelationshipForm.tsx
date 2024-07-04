@@ -12,7 +12,6 @@ import {
   NumberField,
   Submit,
 } from '@redwoodjs/forms'
-import { useState } from 'react'
 
 type FormRelationship = NonNullable<EditRelationshipById['relationship']>
 
@@ -24,17 +23,13 @@ interface RelationshipFormProps {
 }
 
 const RelationshipForm = (props: RelationshipFormProps) => {
-
-  const [formKey, setFormKey] = useState(0)
-
   const onSubmit = (data: FormRelationship) => {
     props.onSave(data, props?.relationship?.id)
-    setFormKey(prevKey => prevKey + 1)
   }
 
   return (
     <div className="rw-form-wrapper">
-      <Form<FormRelationship> key={formKey} onSubmit={onSubmit} error={props.error}>
+      <Form<FormRelationship> onSubmit={onSubmit} error={props.error}>
         <FormError
           error={props.error}
           wrapperClassName="rw-form-error-wrapper"
